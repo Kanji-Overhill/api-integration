@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'App\Http\Controllers\PagosController@getAllPagos')->middleware(['auth'])->name('dashboard');
+Route::get('/factura', function () {
+    return view('factura');
+})->middleware(['auth'])->name('factura');
+Route::post('/generateCip', 'App\Http\Controllers\ApiController@generateCip')->middleware(['auth'])->name('generateCip');
+
+require __DIR__.'/auth.php';

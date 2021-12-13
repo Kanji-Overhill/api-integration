@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/insert', 'App\Http\Controllers\ApiController@insert')->middleware('guest');
 Route::post('/cip', 'App\Http\Controllers\ApiController@cip')->middleware('guest');
+Route::post('/read', 'App\Http\Controllers\ApiController@read')->middleware('guest');
